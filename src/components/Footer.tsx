@@ -47,10 +47,10 @@ function InstagramIcon(props: SocialIconProps) {
   );
 }
 
-function TwitterIcon(props: SocialIconProps) {
+function XIcon(props: SocialIconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
-      <path d="M22 5.9a8 8 0 0 1-2.4.7 4.2 4.2 0 0 0 1.8-2.3 8.4 8.4 0 0 1-2.7 1 4.2 4.2 0 0 0-7.2 3.8 11.9 11.9 0 0 1-8.6-4.4 4.2 4.2 0 0 0 1.3 5.6 4.1 4.1 0 0 1-1.9-.5v.1a4.2 4.2 0 0 0 3.4 4.1 4.2 4.2 0 0 1-1.9.1 4.2 4.2 0 0 0 3.9 2.9A8.4 8.4 0 0 1 2.5 19a11.8 11.8 0 0 0 6.4 1.9c7.7 0 11.9-6.4 11.9-11.9v-.5A8.5 8.5 0 0 0 22 5.9Z" />
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
     </svg>
   );
 }
@@ -63,7 +63,6 @@ const informationLinks = [
   { label: "Trabalhe conosco", href: "#trabalhe-conosco" },
   { label: "Meus pedidos", href: "#pedidos" },
 ];
-
 
 const categoryLinks = [
   { label: "Camisetas", href: "#camisetas" },
@@ -93,8 +92,7 @@ export default function Footer() {
             </a>
 
             <p className="mb-7 text-sm leading-[1.55rem] text-white/90">
-              Encontre os produtos que combinam com você. Qualidade, estilo e
-              tecnologia em um só lugar.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
 
             <div className="flex items-center gap-6">
@@ -117,13 +115,13 @@ export default function Footer() {
                 <InstagramIcon className="h-5 w-5" />
               </a>
               <a
-                href="https://twitter.com/"
+                href="https://x.com/"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Twitter"
+                aria-label="X"
                 className="text-white transition-opacity hover:opacity-70"
               >
-                <TwitterIcon className="h-5 w-5" />
+                <XIcon className="h-5 w-5" />
               </a>
             </div>
           </div>
