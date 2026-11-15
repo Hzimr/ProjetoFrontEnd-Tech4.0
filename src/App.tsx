@@ -1,9 +1,10 @@
 import "./App.css";
+import Paths from "./routes/Paths";
 
 function App() {
   return (
     <>
-      <h1 className="text-secondary">Hello World</h1>
+      <Paths />
     </>
   );
 }
