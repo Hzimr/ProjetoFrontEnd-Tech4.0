@@ -4,4 +4,5 @@ export interface DestaqueProductProps {
   img: string;
   alt: string;
   categoria: string;
+  colecao: string;
 }

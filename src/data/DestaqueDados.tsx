@@ -11,6 +11,7 @@ export const DestaqueDados: DestaqueProductProps[] = [
     img: blusa,
     alt: "blusa supreme",
     categoria: "Novo drop Supreme",
+    colecao: "camisetas",
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ export const DestaqueDados: DestaqueProductProps[] = [
     img: sapato,
     alt: "sapato de corredor adidas",
     categoria: "Coleção Adidas",
+    colecao: "tenis",
   },
   {
     id: 3,
@@ -25,5 +27,6 @@ export const DestaqueDados: DestaqueProductProps[] = [
     img: fone,
     alt: "Fone headset preto",
     categoria: "Novo Beats Bass",
+    colecao: "headphones",
   },
 ];
