@@ -77,11 +77,11 @@ const linkClass =
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#1f1f1f] text-white">
-      <div className="mx-auto max-w-[1200px] px-6 pb-5 pt-14 sm:px-10 lg:px-6">
+    <footer className="w-full bg-gray-dark text-white">
+      <div className="mx-auto max-w-300 px-6 pb-5 pt-14 sm:px-10 lg:px-6">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_0.8fr_0.8fr_1fr] lg:gap-12">
           {/* Apresentação da loja */}
-          <div className="max-w-[300px]">
+          <div className="max-w-75">
             <a
               href="/"
               aria-label="Digital Store - página inicial"
@@ -157,7 +157,7 @@ export default function Footer() {
           {/* Contato */}
           <address className="not-italic">
             <h2 className="mb-7 text-base font-semibold">Contato</h2>
-            <p className="max-w-[230px] text-sm leading-[1.55rem] text-white/90">
+            <p className="max-w-57.5 text-sm leading-[1.55rem] text-white/90">
               Av. Santos Dumont, 1510 - 1º andar - Aldeota, Fortaleza - CE,
               60150-161
             </p>
