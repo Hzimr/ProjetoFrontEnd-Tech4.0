@@ -9,7 +9,7 @@ interface ProductHighProps {
 }
 const ProductHigh = ({ produtos }: ProductHighProps) => {
   return (
-    <div className="flex flex-col gap-5 bg-gray-light-4 py-16 max-w-full px-24">
+    <div className="flex flex-col gap-5 bg-gray-light-4 py-32 max-w-full px-24">
       <section className="flex flex-row justify-between items-center">
         <h3 className="text-2xl font-bold">Produtos em alta</h3>
         <Link
