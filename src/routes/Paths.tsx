@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import PageLayout from "../layouts/PageLayout";
-import ProductViewPage from "../pages/ProductViewPage";
 import NotFound from "../pages/NotFound";
+import ProductListingPage from "../pages/ProductListingPage";
 
 const Paths = () => {
   return (
@@ -11,7 +11,7 @@ const Paths = () => {
         <Routes>
           <Route path="/" element={<PageLayout />}>
             <Route path="/" element={<HomePage />} />
-            <Route path="/produtos" element={<ProductViewPage />} />
+            <Route path="/produtos" element={<ProductListingPage />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
