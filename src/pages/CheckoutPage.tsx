@@ -1,7 +1,7 @@
 // src/pages/CheckoutPage.tsx
 import { useState } from "react";
 import type { FormEvent } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import CampoTexto from "../components/CampoTexto";
 import ResumoCheckout from "../components/ResumoCheckout";
 import SecaoCheckout from "../components/SecaoCheckout";
@@ -18,6 +18,7 @@ import {
   mascaraValidade,
   validadeValida,
 } from "../utils/Checkout";
+import type { Pedido } from "../types/PedidoProps";
 
 interface Dados {
   nome: string;
@@ -96,9 +97,9 @@ const CheckoutPage = () => {
   const location = useLocation();
   const [dados, setDados] = useState<Dados>(INICIAL);
   const [erros, setErros] = useState<Erros>({});
-  const [concluido, setConcluido] = useState(false);
+  const navigate = useNavigate();
+  //const [concluido, setConcluido] = useState(false);
 
-  // Frete e desconto vêm da página do carrinho (via state do Link)
   const extras = (location.state ?? {}) as {
     frete?: number;
     desconto?: number;
@@ -135,31 +136,40 @@ const CheckoutPage = () => {
       return;
     }
 
+    const pedido: Pedido = {
+      numero: Date.now().toString(),
+      pessoal: {
+        nome: dados.nome,
+        cpf: dados.cpf,
+        email: dados.email,
+        celular: dados.celular,
+      },
+      entrega: {
+        endereco: dados.endereco,
+        bairro: dados.bairro,
+        cidade: dados.cidade,
+        cep: dados.cep,
+        complemento: dados.complemento,
+      },
+      pagamento:
+        dados.pagamento === "cartao"
+          ? {
+              forma: "cartao",
+              titular: dados.nomeCartao,
+              finalCartao: apenasDigitos(dados.numeroCartao).slice(-4),
+            }
+          : { forma: "boleto" },
+      itens,
+      subtotal,
+      frete,
+      desconto,
+      total,
+    };
+
     // Aqui entraria a chamada ao gateway de pagamento
-    setConcluido(true);
+    navigate("/compra-realizada", { state: { pedido }, replace: true });
     esvaziar();
   };
-
-  if (concluido) {
-    return (
-      <main className="flex flex-col items-center gap-4 px-6 py-24 text-center">
-        <h1 className="text-2xl font-bold text-gray-900">
-          Pedido realizado! 🎉
-        </h1>
-        <p className="text-gray-600">
-          {dados.pagamento === "boleto"
-            ? "Enviamos o boleto para o seu e-mail."
-            : "Seu pagamento foi aprovado."}
-        </p>
-        <Link
-          to="/produtos"
-          className="rounded-md bg-primary px-6 py-3 font-semibold text-white"
-        >
-          Continuar comprando
-        </Link>
-      </main>
-    );
-  }
 
   if (itens.length === 0) {
     return (

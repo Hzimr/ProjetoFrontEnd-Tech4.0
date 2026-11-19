@@ -65,8 +65,8 @@ const CompraRealizadaPage = () => {
   };
 
   return (
-    <main className="flex flex-col items-center bg-[#F9F8FE] px-6 py-10 lg:py-16">
-      <div className="flex w-full max-w-[760px] flex-col gap-6">
+    <main className="flex flex-col items-center bg-gray-light-4 px-6 py-10 lg:py-16">
+      <div className="flex w-full max-w-190 flex-col gap-6">
         {/* Cartão Principal do Recibo */}
         <section className="rounded-md bg-white p-6 shadow-xs sm:p-10">
           {/* Cabeçalho com Ícone e Título */}
@@ -74,7 +74,7 @@ const CompraRealizadaPage = () => {
             <span className="mb-3 text-5xl" role="img" aria-label="Festa">
               🎉
             </span>
-            <h1 className="max-w-[260px] text-2xl font-bold leading-tight text-gray-900 sm:max-w-none sm:text-3xl">
+            <h1 className="max-w-65 text-2xl font-bold leading-tight text-gray-900 sm:max-w-none sm:text-3xl">
               Compra Realizada com sucesso!
             </h1>
           </div>

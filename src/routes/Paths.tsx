@@ -6,7 +6,7 @@ import ProductListingPage from "../pages/ProductListingPage";
 import ProductViewPage from "../pages/ProductViewPage";
 import CartPage from "../pages/CartPage";
 import CheckoutPage from "../pages/CheckoutPage";
-import CompraRealizadaPage from "../pages/CompraRealizadaPage";
+import OrderSuccessPage from "../pages/OrderSucessPage";
 
 const Paths = () => {
   return (
@@ -19,7 +19,10 @@ const Paths = () => {
             <Route path="/produtos/:id" element={<ProductViewPage />} />
             <Route path="/carrinho" element={<CartPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
-            <Route path="/compra-realizada" element={<CompraRealizadaPage />} />
+            <Route
+              path="/compra-realizada"
+              element={<OrderSuccessPage />}
+            />{" "}
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
