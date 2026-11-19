@@ -3,6 +3,8 @@ import { useState } from "react";
 import { PiStar, PiStarFill } from "react-icons/pi";
 import type { ProdutoDetalhe } from "../types/ProdutoDetalhe";
 import { FormatPrice } from "../utils/FormatPrice";
+import { useNavigate } from "react-router-dom";
+import { useCarrinho } from "../contexts/CarrinhoContext";
 
 const Estrelas = ({ nota }: { nota: number }) => (
   <span className="flex text-amber-400" aria-hidden>
@@ -15,6 +17,26 @@ const Estrelas = ({ nota }: { nota: number }) => (
 const InfoProduto = ({ produto }: { produto: ProdutoDetalhe }) => {
   const [tamanho, setTamanho] = useState<number | null>(null);
   const [cor, setCor] = useState(produto.cores[0]?.hex ?? null);
+
+  const navigate = useNavigate();
+  const { adicionar } = useCarrinho();
+
+  const comprar = () => {
+    if (tamanho === null) return;
+
+    adicionar({
+      id: produto.id,
+      nome: produto.nome,
+      img: produto.imagens[0].src,
+      alt: produto.alt,
+      tamanho,
+      cor: produto.cores.find((c) => c.hex === cor)?.nome ?? "",
+      preco,
+      precoAntigo: produto.valorAntigo,
+    });
+
+    navigate("/carrinho");
+  };
 
   const preco = produto.oferta
     ? produto.valor * (1 - (produto.desconto ?? 0) / 100)
@@ -106,6 +128,7 @@ const InfoProduto = ({ produto }: { produto: ProdutoDetalhe }) => {
       <div className="flex flex-col gap-2">
         <button
           type="button"
+          onClick={comprar}
           disabled={tamanho === null}
           className="h-12 w-full max-w-60 rounded-md bg-amber-400 font-bold uppercase text-white transition hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-50"
         >
