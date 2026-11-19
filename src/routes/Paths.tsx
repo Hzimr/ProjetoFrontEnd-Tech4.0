@@ -3,6 +3,7 @@ import HomePage from "../pages/HomePage";
 import PageLayout from "../layouts/PageLayout";
 import NotFound from "../pages/NotFound";
 import ProductListingPage from "../pages/ProductListingPage";
+import ProductViewPage from "../pages/ProductViewPage";
 
 const Paths = () => {
   return (
@@ -12,6 +13,7 @@ const Paths = () => {
           <Route path="/" element={<PageLayout />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/produtos" element={<ProductListingPage />} />
+            <Route path="/produtos/:id" element={<ProductViewPage />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
