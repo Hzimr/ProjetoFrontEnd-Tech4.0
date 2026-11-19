@@ -146,6 +146,7 @@ const CartPage = () => {
         </p>
         <Link
           to="/checkout"
+          state={{ frete, desconto }}
           className="flex h-11 items-center justify-center rounded-md bg-amber-400 font-bold text-white"
         >
           Continuar

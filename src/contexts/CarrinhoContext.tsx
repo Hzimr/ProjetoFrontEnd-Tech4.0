@@ -9,6 +9,7 @@ interface CarrinhoContextProps {
   adicionar: (item: Omit<ItemCarrinhoProps, "chave" | "quantidade">) => void;
   alterarQuantidade: (chave: string, delta: number) => void;
   remover: (chave: string) => void;
+  esvaziar: () => void;
 }
 
 const CarrinhoContext = createContext<CarrinhoContextProps | null>(null);
@@ -22,6 +23,7 @@ export const CarrinhoProvider = ({ children }: { children: ReactNode }) => {
       return [];
     }
   });
+  const esvaziar = () => setItens([]);
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(itens));
@@ -56,7 +58,14 @@ export const CarrinhoProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <CarrinhoContext.Provider
-      value={{ itens, totalItens, adicionar, alterarQuantidade, remover }}
+      value={{
+        itens,
+        totalItens,
+        adicionar,
+        alterarQuantidade,
+        remover,
+        esvaziar,
+      }}
     >
       {children}
     </CarrinhoContext.Provider>

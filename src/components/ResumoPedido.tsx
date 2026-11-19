@@ -41,6 +41,7 @@ const ResumoPedido = ({ subtotal, frete, desconto, total }: Props) => (
     {/* No mobile, o botão fica na barra fixa */}
     <Link
       to="/checkout"
+      state={{ frete, desconto }}
       className="hidden h-11 items-center justify-center rounded-md bg-amber-400 text-sm font-bold text-white hover:brightness-105 lg:flex"
     >
       Continuar
