@@ -6,8 +6,7 @@ import { FaFacebook } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import CampoTexto from "../components/CampoTexto";
 import Logo from "../components/Logo";
-import imgTenis from "../imgs/login-tenis.png";
-
+import imgTenis from "../imgs/sneakers.png";
 type Erros = { login?: string; senha?: string; geral?: string };
 
 const LoginPage = () => {

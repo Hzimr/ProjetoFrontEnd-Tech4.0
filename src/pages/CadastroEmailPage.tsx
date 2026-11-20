@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaFacebook } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import CampoTexto from "../components/CampoTexto";
-import imgTenis from "../imgs/login-tenis.png";
+import imgTenis from "../imgs/sneakers.png";
 
 const CadastroEmailPage = () => {
   const navigate = useNavigate();

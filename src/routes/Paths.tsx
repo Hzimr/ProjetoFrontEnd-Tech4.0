@@ -10,6 +10,7 @@ import OrderSuccessPage from "../pages/OrderSucessPage";
 import LoginPage from "../pages/LoginPage";
 import CadastroPage from "../pages/CadastroPage";
 import CadastroEmailPage from "../pages/CadastroEmailPage";
+import MyOrdersPage from "../pages/MyOrdersPage";
 
 const Paths = () => {
   return (
@@ -23,13 +24,12 @@ const Paths = () => {
             <Route path="/produtos/:id" element={<ProductViewPage />} />
             <Route path="/carrinho" element={<CartPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
-            <Route
-              path="/compra-realizada"
-              element={<OrderSuccessPage />}
-            />{" "}
+            <Route path="/compra-realizada" element={<OrderSuccessPage />} />
+            <Route path="/cadastro" element={<CadastroEmailPage />} />
+            <Route path="/cadastro/dados" element={<CadastroPage />} />
+            <Route path="/meuspedidos" element={<MyOrdersPage />} />
           </Route>
-          <Route path="/cadastro" element={<CadastroEmailPage />} />
-          <Route path="/cadastro/dados" element={<CadastroPage />} />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
