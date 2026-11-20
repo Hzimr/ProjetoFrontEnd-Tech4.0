@@ -7,12 +7,16 @@ import ProductViewPage from "../pages/ProductViewPage";
 import CartPage from "../pages/CartPage";
 import CheckoutPage from "../pages/CheckoutPage";
 import OrderSuccessPage from "../pages/OrderSucessPage";
+import LoginPage from "../pages/LoginPage";
+import CadastroPage from "../pages/CadastroPage";
+import CadastroEmailPage from "../pages/CadastroEmailPage";
 
 const Paths = () => {
   return (
     <>
       <BrowserRouter>
         <Routes>
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/" element={<PageLayout />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/produtos" element={<ProductListingPage />} />
@@ -24,6 +28,8 @@ const Paths = () => {
               element={<OrderSuccessPage />}
             />{" "}
           </Route>
+          <Route path="/cadastro" element={<CadastroEmailPage />} />
+          <Route path="/cadastro/dados" element={<CadastroPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

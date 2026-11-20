@@ -1,6 +1,6 @@
 // src/components/Header.tsx
 import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { PiList, PiX } from "react-icons/pi";
 import Logo from "./Logo";
@@ -12,6 +12,8 @@ const LINKS = [
   { to: "/categorias", rotulo: "Categorias" },
   { to: "/meuspedidos", rotulo: "Meus pedidos" },
 ];
+
+const ROTAS_SO_LOGO = ["/cadastro", "/login"];
 
 const classeLink =
   (mobile: boolean) =>
@@ -26,8 +28,11 @@ const classeLink =
 const Header = () => {
   const [menuAberto, setMenuAberto] = useState(false);
   const [buscaAberta, setBuscaAberta] = useState(false);
+  const { pathname } = useLocation();
 
   const fecharMenu = () => setMenuAberto(false);
+
+  const soLogo = ROTAS_SO_LOGO.some((rota) => pathname.startsWith(rota));
 
   // Trava o scroll e fecha com Esc enquanto o menu está aberto
   useEffect(() => {
@@ -46,6 +51,16 @@ const Header = () => {
       window.removeEventListener("keydown", aoTeclar);
     };
   }, [menuAberto]);
+
+  if (soLogo) {
+    return (
+      <header className="bg-white px-4 py-4 lg:px-24">
+        <div className="flex justify-center lg:justify-start">
+          <Logo />
+        </div>
+      </header>
+    );
+  }
 
   return (
     <header className="flex max-w-full flex-col gap-10 bg-white px-4 py-4 lg:px-24 lg:py-8">
@@ -94,12 +109,12 @@ const Header = () => {
             <CiSearch size={24} />
           </button>
 
-          <Link to="/" className="hidden underline lg:block">
+          <Link to="/cadastro" className="hidden underline lg:block">
             Cadastre-se
           </Link>
 
           <Link
-            to="/"
+            to="/login"
             className="hidden h-10 w-28 items-center justify-center rounded-lg bg-primary text-white lg:flex"
           >
             Entrar
@@ -177,7 +192,7 @@ const Header = () => {
             Entrar
           </Link>
           <Link
-            to="/"
+            to="/cadastro"
             onClick={fecharMenu}
             className="py-2 text-center text-sm underline"
           >
