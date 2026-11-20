@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
 import type { CardProductProps } from "../types/CardProductProps";
 import { FormatPrice } from "../utils/FormatPrice";
 
 const CardProduct = ({
+  id,
   oferta = false,
   desconto = 0,
   img,
@@ -14,7 +16,10 @@ const CardProduct = ({
   const valorFinal = temDesconto ? valor * (1 - desconto / 100) : valor;
 
   return (
-    <div className="flex h-80 w-72 flex-col gap-3 bg-white rounded-lg p-4">
+    <Link
+      to={`/produtos/${id}`}
+      className="flex h-80 w-72 flex-col gap-3 bg-white rounded-lg p-4 transition hover:-translate-y-1 hover:shadow-md"
+    >
       <section className="relative">
         {temDesconto && (
           <span className="rounded-4xl text-center w-24 absolute top-2 left-2 bg-offer text-black text-sm font-bold px-2 py-1">
@@ -36,7 +41,7 @@ const CardProduct = ({
           <span className="font-bold">{FormatPrice(valorFinal)}</span>
         </div>
       </section>
-    </div>
+    </Link>
   );
 };
 
